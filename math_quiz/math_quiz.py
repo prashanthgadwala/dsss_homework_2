@@ -61,8 +61,12 @@ def math_quiz():
         problem, correct_answer = create_math_problem(num1, num2, operator)
         print(f"\nQuestion: {problem}")
 
-        user_answer = input("Your answer: ")
-        user_answer = int(user_answer)
+        try:
+            user_answer = input("Your answer: ")
+            user_answer = int(user_answer)
+        except ValueError:
+            print("Invalid input. Please enter a numeric value.")
+            continue
 
         if user_answer == correct_answer:
             print("Correct! You earned a point.")
